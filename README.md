@@ -13,12 +13,16 @@ These are large efforts that span across multiple days, weeks, or even months to
 
 #### data
 * Name
-* Notes
+* Notes timeline (timestamped)
 * Status (Not Started, Working, Complete)
-* Start Date and End Date (not used if Dynamic Dates are used, which takes the Start Date of the earliest task and the End Date of the latest task)
+* Start Date and Target Completion Date (not used if Dynamic Dates are used, which takes the Start Date of the earliest task and the Target Completion Date of the latest task)
+* Priority (Low, Medium, High)
+* Cateogry (managed on the settings page)
+* Health (green: On track, yellow: Due within 14 days and <75% complete, red: Past due)
+* Next Action: the task that is currently scheduled or next (earliest start date that isn't completed)
 
 #### database actions
-Create, Read, Update, Delete
+Create, Read, Update, Delete, Archive
 A project can't be deleted if there are underlying tasks
 
 ### task
@@ -28,21 +32,25 @@ A task contains the following tracking artifcats:
 * Name
 * Notes
 * Status (Not Started, Working, Complete)
-* Start Date and End Date
+* Planned Date and End Date
+* Effort: Small (<1 hour), Medium (1–4 hours), Large (4+ hours)
 
 #### database actions
 Create, Read, Update, Delete
 
 ## ui/ux
 ### home
-The home tab will contain in the first card tasks that are past due and coming due in the next week (7 days). Each card will have the task name, the due date, the project associated and a designator to show it's "past due" (red) or "coming due" (brown). The task should be able to be completed from the dashboard by tapping on an empty checkbox on the left-hand side.
-
-The second card will show projects that are past due and coming due in the next week (7 days). Each card will have the project name, the due date, and a designator to show it's "past due" (red) or "coming due" (brown).
-
-The third card will show recently completed tasks (past 7 days, including today). Each card will have the task name, the due date, and the project associated.
+The home tab will contain multiple cards to display data:
+* card 1: top 5 tasks by priority and due date
+* card 2: tasks that are overdue
+* card 3: projects currently working
+* card 4: recently completed tasks in the last 7 days
 
 ### projects
 The projects tab will list all projects, with their start and end date, their status, and the % complete (based on task completion). Projects should be sorted by descending by start date (earliest start date first). I should be able to change views to see what projects are due in calendar year quarters (Q1, Q2, etc.)
 
 ### settings
-The settings page will contain dark mode / light mode setting. 
+The settings page will contain 
+* dark mode / light mode setting
+* category management (CRUD, can't delete if being used)
+
